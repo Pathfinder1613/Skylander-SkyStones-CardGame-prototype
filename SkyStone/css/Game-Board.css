@@ -1,0 +1,62 @@
+/* General styling for the game grid */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjust columns based on grid size */
+    gap: 10px; /* Space between grid cells */
+    max-width: 600px; /* Limit the grid size */
+    margin: 0 auto; /* Center the grid */
+}
+
+.box {
+    width: 200px; /* Set a fixed width for each cell */
+    height: 200px; /* Set a fixed height for each cell */
+    background-color: #f0f0f0; /* Light gray background for empty cells */
+    border: 2px solid #ccc; /* Subtle border for cells */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* Prevent image overflow */
+    border-radius: 8px; /* Rounded corners for a polished look */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+/* Style for the occupied cells */
+.box.occupied {
+    background-color: #d9f99d; /* Light green background for occupied cells */
+    border-color: #65a30d; /* Green border for occupied cells */
+}
+
+/* Image styling for the card placed in the grid */
+.card-image {
+    max-width: 90%; /* Image should take up 90% of the cell's width */
+    max-height: 90%; /* Image should take up 90% of the cell's height */
+    object-fit: contain; /* Ensure the image is scaled proportionally */
+    border-radius: 4px; /* Slight rounding of the image corners */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover effects */
+}
+
+/* Hover effect for the grid cell (optional) */
+.box:hover {
+    background-color: #f9fafb; /* Slightly change background color on hover */
+    border-color: #9ca3af; /* Change border color on hover */
+}
+
+/* Optional hover effect for images */
+.card-content:hover {
+    transform: scale(1.1); /* Slight zoom-in effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+@media (max-width: 768px) {
+    .box {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 60px;
+        height: 60px;
+    }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skystones Battle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Skylanders Skystones</h1>
+    <div id="turn">It's Player 1's turn!</div>
+    
+    <div id="board">
+        <!-- 3x3 Grid Cells -->
+        <div class="cell" data-row="0" data-col="0"></div>
+        <div class="cell" data-row="0" data-col="1"></div>
+        <div class="cell" data-row="0" data-col="2"></div>
+        <div class="cell" data-row="1" data-col="0"></div>
+        <div class="cell" data-row="1" data-col="1"></div>
+        <div class="cell" data-row="1" data-col="2"></div>
+        <div class="cell" data-row="2" data-col="0"></div>
+        <div class="cell" data-row="2" data-col="1"></div>
+        <div class="cell" data-row="2" data-col="2"></div>
+    </div>
+
+    <div id="alert" class="alert"></div> <!-- To display battle results -->
+
+    <script src="gammeLogic.js"></script>
+</body>
+</html>

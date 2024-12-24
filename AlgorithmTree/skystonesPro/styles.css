@@ -1,0 +1,68 @@
+/* Battle result styles */
+#alert {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1); /* Slight red background for better contrast */
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+/* Add a glow effect when placing a stone */
+.cell.taken {
+    background-color: #99cc99;
+    cursor: not-allowed;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Green glow for placed stones */
+}
+
+/* Highlight for empty cells */
+.cell:hover:not(.taken) {
+    background-color: #cccccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle glow on hover */
+}
+
+#turn {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Example cell hover effect */
+.cell:hover {
+    background-color: #ddd;
+    cursor: pointer;
+    transform: scale(1.05); /* Slight scale effect on hover */
+    transition: transform 0.2s ease-in-out; /* Smooth transition for scale */
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px; /* Added space below the board */
+    padding: 20px;
+    background-color: #fff; /* White background to make the grid stand out */
+    border-radius: 10px; /* Rounded corners for the board */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Soft shadow around the board */
+}
+
+/* Stone name styles */
+.stone-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase; /* Make stone names all uppercase for clarity */
+}
+
+
