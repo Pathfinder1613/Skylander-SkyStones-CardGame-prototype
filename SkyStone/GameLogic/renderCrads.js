@@ -30,6 +30,11 @@ export function renderStones(game) {
             stats.textContent = `Attack: ${stone.attack}`;
             card.appendChild(stats);
 
+            const ability = document.createElement('p');
+            ability.textContent = `Ability: ${stone.ability}`;
+            ability.classList.add('card-ability'); // Optional CSS for styling
+            card.appendChild(ability);
+
             playerDiv.appendChild(card);
         });
 

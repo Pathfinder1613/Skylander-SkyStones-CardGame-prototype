@@ -35,8 +35,6 @@ function captureStonesWithTree(box, game, placedCard) {
             }
         });
     }
-
-    // Start capturing from the placed stone
     captureRecursive(box);
 }
 
@@ -65,12 +63,32 @@ function getAdjacentBoxes(currentBox, boxes, gridSize) {
 }
 
 
+function applyAbility(ability, game, selectedCard, box) {
+    switch (ability) {
+        case 'doubleAttack':
+            selectedCard.attack *= 2;
+            break;
+        case 'heal':
+            game.players[game.currentPlayer].stones.forEach(stone => {
+                stone.attack += 1; // Example: Heal increases attack by 1
+            });
+            break;
+        // Add more abilities as needed
+        default:
+            console.log(`Ability ${ability} not recognized.`);
+    }
+}
+
 
 export function addBoxClickListener(game) {
     const boxes = document.querySelectorAll('.box');
 
     boxes.forEach((box) => {
         box.addEventListener('click', () => {
+
+
+
+
             if (box.classList.contains('occupied')) {
                 const consoleElement = document.getElementById('console');
                 consoleElement.textContent = "This spot is already occupied!";
@@ -87,6 +105,10 @@ export function addBoxClickListener(game) {
                     const console = document.getElementById('console');
                     console.textContent = "Invalid card selection!";
                     return;
+                }
+
+                if (selectedCard.ability) {
+                    applyAbility(selectedCard.ability, game, selectedCard, box);
                 }
 
                 
@@ -116,9 +138,11 @@ export function addBoxClickListener(game) {
                 const console = document.getElementById('console');
                 console.textContent = "No card selected yet.";
             }
+        
         });
     });
 }
+
 
 
 export function addCardSelectionListener() {
