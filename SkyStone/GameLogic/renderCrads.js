@@ -1,19 +1,21 @@
-
 import { addCardSelectionListener } from './gameBoard.js';
 
-export function renderStones(game) {
+export function renderStones(game, currentPlayerTurn) {
     const PlayerHand = document.getElementById('Player-Hand');
     PlayerHand.innerHTML = '';
 
-       const currentPlayer = game.players[game.currentPlayer];
+    const isGameBoardPage = window.location.pathname.includes('game-Board.html');
+
+    game.players.forEach((player, index) => {
+        if (isGameBoardPage && index !== currentPlayerTurn) return; // Skip rendering if it's not the current player's turn on game-Board.html
 
         const playerDiv = document.createElement("div");
         playerDiv.classList.add("player");
         const playerName = document.createElement("h2");
-        playerName.textContent = `${currentPlayer.name}'s Skystones`;
+        playerName.textContent = `${player.name}'s Skystones`;
         playerDiv.appendChild(playerName);
 
-        currentPlayer.stones.forEach((stone) => {
+        player.stones.forEach((stone) => {
             const card = document.createElement("div");
             card.classList.add("card");
 
@@ -34,8 +36,7 @@ export function renderStones(game) {
         });
 
         PlayerHand.appendChild(playerDiv);
+    });
 
-        addCardSelectionListener()
-    };
-
- 
+    addCardSelectionListener();
+}
